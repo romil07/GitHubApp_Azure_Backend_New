@@ -24,7 +24,7 @@ namespace AIGTest
             var controller = new InstallationTokenController(mockInstallationTokenService.Object);
 
             //Act
-            var result = controller.FetchInstallationToken(instTokenContext, "uuygfcdsmbfsuh5gkjhkjhv");
+            var result = controller.FetchToken(instTokenContext, "uuygfcdsmbfsuh5gkjhkjhv");
 
             //Assert
             Assert.NotEmpty(result);

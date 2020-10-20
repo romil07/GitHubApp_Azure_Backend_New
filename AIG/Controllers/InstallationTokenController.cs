@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using AIG.Constants;
 using AIG.Contracts;
 using AIG.Mappers;
 using AIG.Services.InstallationToken;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AIG.Controllers
@@ -18,6 +20,7 @@ namespace AIG.Controllers
             _installationTokenService = installationTokenService;
             _installationTokenContextMapper = new InstallationTokenContextMapper();
         }
+
         /// <summary>
         /// Fetches the installation token for the given context
         /// </summary>
@@ -25,7 +28,8 @@ namespace AIG.Controllers
         /// <param name="usertoken">User token to verify Azure scope</param>
         /// <returns>List of repos and the token</returns>
         [HttpPut]
-        public IEnumerable<InstallationTokenResponse> FetchInstallationToken(
+        [Authorize(AuthenticationSchemes = AigAuthConstants.TokenAuthenticationDefaultScheme)]
+        public IEnumerable<InstallationTokenResponse> FetchToken(
             InstallationTokenContext installationTokenContext,
             string usertoken)
         {

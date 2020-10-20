@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using AIG.Controllers;
+using AIG.Constants;
 
 namespace AIG
 {
@@ -20,6 +23,7 @@ namespace AIG
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IInstallationTokenService, InstallationTokenService>();
+            SetupJWTAuth(services);
             services.AddControllers();
         }
 
@@ -41,6 +45,16 @@ namespace AIG
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void SetupJWTAuth(IServiceCollection services)
+        {
+            #region Authentication
+            services.AddAuthentication(o => {
+                o.DefaultScheme = AigAuthConstants.TokenAuthenticationDefaultScheme;
+            })
+            .AddScheme<JwtBearerOptions, TokenAuthenticationHandler>(AigAuthConstants.TokenAuthenticationDefaultScheme, o => { });
+            #endregion
         }
     }
 }
