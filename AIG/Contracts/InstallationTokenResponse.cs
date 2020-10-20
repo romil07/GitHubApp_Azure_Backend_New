@@ -3,6 +3,6 @@
     public class InstallationTokenResponse
     {
         public int[] Repos { get; set; }
-        public string token { get; set; }
+        public string Token { get; set; }
     }
 }

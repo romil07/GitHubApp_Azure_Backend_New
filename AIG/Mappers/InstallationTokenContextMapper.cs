@@ -9,12 +9,12 @@ namespace AIG.Mappers
 {
     public class InstallationTokenContextMapper
     {
-		/// <summary>
-		/// Maps installation contract to service contract
-		/// </summary>
-		/// <param name="installationTokenContext"></param>
-		/// <returns>InstallationTokenServiceContext</returns>
-		public InstallationTokenServiceContext MapToInstallationTokenServiceContext(
+        /// <summary>
+        /// Maps installation contract to service contract
+        /// </summary>
+        /// <param name="installationTokenContext"></param>
+        /// <returns>InstallationTokenServiceContext</returns>
+        public static InstallationTokenServiceContext MapToInstallationTokenServiceContext(
 			InstallationTokenContext installationTokenContext)
 		{
 			InstallationTokenServiceContext installationTokenServiceContext = new InstallationTokenServiceContext();

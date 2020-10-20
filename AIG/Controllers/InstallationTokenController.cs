@@ -13,12 +13,10 @@ namespace AIG.Controllers
     public class InstallationTokenController : ControllerBase
     {
         private readonly IInstallationTokenService _installationTokenService;
-        private readonly InstallationTokenContextMapper _installationTokenContextMapper;
 
         public InstallationTokenController(IInstallationTokenService installationTokenService)
         {
             _installationTokenService = installationTokenService;
-            _installationTokenContextMapper = new InstallationTokenContextMapper();
         }
 
         /// <summary>
@@ -34,7 +32,7 @@ namespace AIG.Controllers
             string usertoken)
         {
             var installationTokenServiceContext = 
-                _installationTokenContextMapper.MapToInstallationTokenServiceContext(
+                InstallationTokenContextMapper.MapToInstallationTokenServiceContext(
                     installationTokenContext);
             return _installationTokenService.FetchInstallationToken(installationTokenServiceContext);
         }

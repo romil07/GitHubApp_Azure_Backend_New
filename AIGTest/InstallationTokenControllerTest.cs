@@ -3,7 +3,6 @@ using AIG.Controllers;
 using AIG.Models;
 using AIG.Services.InstallationToken;
 using Moq;
-using System.Collections;
 using System.Collections.Generic;
 using Xunit;
 
