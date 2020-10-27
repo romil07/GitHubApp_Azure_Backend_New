@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: "rogoyalguanew-e6ad"
+    labels:
+        app: "rogoyalguanew-e6ad"
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+    selector:
+        app: "rogoyalguanew-e6ad"
