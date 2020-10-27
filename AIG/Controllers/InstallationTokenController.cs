@@ -36,5 +36,11 @@ namespace AIG.Controllers
                     installationTokenContext);
             return _installationTokenService.FetchInstallationToken(installationTokenServiceContext);
         }
+
+        [HttpGet]
+        public string Name()
+        {
+            return "My name is Manish Narula";
+        }
     }
 }
